@@ -19,18 +19,32 @@ public class RemoveElementFromArray {
         }
 
         //Xóa phần tử của mảng
-        System.out.println("Phần tử muốn xóa:");
+        System.out.println("\nPhần tử muốn xóa:");
         int valueRemoved = scanner.nextInt();
+        int indexOfValue = 0;
         boolean existsElement = false;
         for (int i = 0; i < size; i++) {
             if (valueRemoved == array[i]) {
                 existsElement = true;
+                indexOfValue = i;
                 break;
             }
         }
 
         if (existsElement) {
             System.out.println(valueRemoved + " có tồn tại trong mảng");
+            System.out.println("Bạn có muốn xóa không(y/n)?");
+            String answer = scanner.next();
+            if (answer.equals("y")) {
+                for (int i = 0; i < size - 1; i++) {
+                    if (indexOfValue <= i) {
+                        array[i] = array[i + 1];
+                    }
+                    System.out.printf(array[i] + "\t");
+                }
+            } else {
+                System.exit(0);
+            }
         } else {
             System.out.println(valueRemoved + " không tồn tại trong mảng");
         }
