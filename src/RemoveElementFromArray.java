@@ -47,6 +47,7 @@ public class RemoveElementFromArray {
             }
         } else {
             System.out.println(valueRemoved + " không tồn tại trong mảng");
+            System.exit(0);
         }
 
     }
